@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #EEE2D1;
+  color: #34271F;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #B68C45;
+  color: #EEE2D1;
+}
+
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: #EEE2D1; }
+::-webkit-scrollbar-thumb { background: #DDC5A2; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #B68C45; }
+
+@layer utilities {
+  .container-x {
+    @apply max-w-[1360px] mx-auto px-6 md:px-10 lg:px-14;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[10px] md:text-xs tracking-[0.35em] uppercase font-alt font-medium text-gold;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply block w-8 h-[1.5px] bg-gold;
+  }
+
+  .heading-serif {
+    @apply font-display text-cocoa;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-cocoa text-sandalwood px-8 py-4 rounded-full text-sm tracking-wide font-alt font-medium
+    transition-all duration-500 ease-lux hover:bg-gold hover:shadow-luxury hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-cocoa/30 text-cocoa px-8 py-4 rounded-full text-sm tracking-wide font-alt font-medium
+    transition-all duration-500 ease-lux hover:border-gold hover:bg-gold hover:text-sandalwood hover:-translate-y-0.5;
+  }
+
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2 border border-cocoa/40 text-cocoa px-8 py-4 rounded-full text-sm tracking-wide font-alt font-medium
+    transition-all duration-500 ease-lux hover:bg-cocoa hover:text-sandalwood hover:-translate-y-0.5;
+  }
+
+  .card-glass {
+    @apply bg-sandalwood/80 backdrop-blur-xl border border-camel/40 shadow-soft;
+  }
+
+  .divider-gold {
+    @apply w-16 h-[2px] bg-gradient-to-r from-gold to-camel rounded-full;
+  }
+
+  .section-pad {
+    @apply py-24 md:py-32;
+  }
+
+  .grain-overlay {
+    @apply pointer-events-none absolute inset-0 bg-grain;
+  }
+}
+
+/* Light tan section — replaces the old dark leather-dark */
+.leather-tan {
+  background-color: #DDC5A2;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(182,140,69,0.15), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(52,39,31,0.06), transparent 45%);
+}
+
+/* Light sandalwood section — for GlobalExport and Footer */
+.leather-sand {
+  background-color: #EEE2D1;
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(182,140,69,0.12), transparent 45%),
+    radial-gradient(circle at 85% 70%, rgba(221,197,162,0.4), transparent 40%);
+}
+
+.stitch-line {
+  background-image: repeating-linear-gradient(90deg, #B68C45 0 10px, transparent 10px 18px);
+  height: 2px;
+}
+
+.swoosh-underline {
+  position: relative;
+}
+.swoosh-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 46px;
+  height: 14px;
+  background: linear-gradient(90deg, #B68C45, #DDC5A2);
+  clip-path: path("M0,14 C12,14 18,4 46,0 L46,4 C20,8 14,14 4,14 Z");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
